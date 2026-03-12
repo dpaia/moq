@@ -24,7 +24,6 @@ RUN apt-get update && \
     # Required for env
     libcurl4-gnutls-dev \
     libexpat1-dev \
-    mono-complete \
     libicu-dev \
     libicu70 \
     # Required for installing Git
