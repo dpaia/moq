@@ -22,9 +22,11 @@ _capture_output() {
 
 cd "$PROJECT_ROOT"
 
-# --- Reset to base commit ---
-git reset --hard "{{ instance.base_commit }}" 2>/dev/null
-git clean -fdx 2>/dev/null
+# --- Reset to base commit (only if EE_BENCH_RESET is set) ---
+if [ -n "${EE_BENCH_RESET:-}" ]; then
+  git reset --hard "{{ instance.base_commit }}" 2>/dev/null
+  git clean -fdx 2>/dev/null
+fi
 
 # ============================================================
 # CRITERION 1: patch_applied
