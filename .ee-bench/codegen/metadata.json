@@ -1,0 +1,36 @@
+{
+  "instance_id": "devlooped__moq-1259",
+  "base_commit": "eef6e1b8f9686f227e247956f4b235f9774f0afc",
+  "benchmark_type": "codegen",
+  "expected": {
+    "FAIL_TO_PASS": [
+      "Not initialized yet"
+    ],
+    "PASS_TO_PASS": [
+      "Not initialized yet"
+    ]
+  },
+  "eval": {
+    "test_framework": "net6.0",
+    "env_setup_version": "1.0",
+    "run_tests_version": "1.0",
+    "files": {
+      "scripts/install.sh": "rm -rf \"./tests/Moq.Tests/MockRepositoryFixture.cs\"\ndotnet build\ndotnet add \"./tests/Moq.Tests/Moq.Tests.csproj\" package JUnitTestLogger"
+    }
+  },
+  "environment": {
+    "project_root": "/app",
+    "dockerfile_tag": "devlooped__moq"
+  },
+  "language": "csharp",
+  "env_setup_version": "1.0",
+  "run_tests_version": "1.0",
+  "test_framework": "net6.0",
+  "test_framework_flag": "--framework net6.0",
+  "test_project": "./tests/Moq.Tests/Moq.Tests.csproj",
+  "test_logger": "junit;LogFilePath=$ARTIFACTS_DIR/tests.log",
+  "execution_flags": "-Dqodana.net.solution=Moq.sln",
+  "fields": {
+    "repo": "devlooped/moq"
+  }
+}
