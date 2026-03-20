@@ -129,7 +129,6 @@ test_status = 'fail' if has_failures else 'pass'
 
 result = {
     'schema_version': '2.0',
-    'command': 'run',
     'status': 'success' if patch_status == 'pass' and compile_status == 'pass' else 'failure',
     'timestamp': timestamp,
     'duration_seconds': overall_duration,
