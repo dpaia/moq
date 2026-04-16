@@ -54,7 +54,7 @@ fi
 # ============================================================
 COMPILE_START=$SECONDS
 COMPILE_STATUS="pass"
-bash "$EVAL_DIR/scripts/install.sh" > /tmp/compile_stdout.log 2> /tmp/compile_stderr.log || {
+dotnet build > /tmp/compile_stdout.log 2> /tmp/compile_stderr.log || {
   COMPILE_STATUS="fail"
 }
 COMPILE_DURATION=$(_elapsed $COMPILE_START)
@@ -90,7 +90,7 @@ PATCH_DURATION=$(_elapsed $PATCH_START)
 # ============================================================
 REBUILD_STATUS="skipped"
 if [ "$COMPILE_STATUS" = "pass" ] && [ "$PATCH_STATUS" = "pass" ]; then
-  bash "$EVAL_DIR/scripts/install.sh" > /tmp/rebuild_stdout.log 2> /tmp/rebuild_stderr.log || {
+  dotnet build > /tmp/rebuild_stdout.log 2> /tmp/rebuild_stderr.log || {
     REBUILD_STATUS="fail"
     COMPILE_STATUS="fail"
   }

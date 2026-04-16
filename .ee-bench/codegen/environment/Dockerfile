@@ -60,6 +60,10 @@ RUN git clone https://github.com/{{ instance.owner }}/{{ instance.repo_name }}.g
 WORKDIR /app
 RUN git checkout {{ instance.base_commit }}
 
+RUN rm -rf "./tests/Moq.Tests/MockRepositoryFixture.cs" && \
+    dotnet add "./tests/Moq.Tests/Moq.Tests.csproj" package JUnitTestLogger && \
+    dotnet build
+
 LABEL ee-bench.type="codegen"
 LABEL ee-bench.version="1.0"
 RUN rm -rf /app/.ee-bench/ 2>/dev/null || true
