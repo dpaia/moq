@@ -22,7 +22,7 @@ _run_tests() {
   mkdir -p "$ARTIFACTS_DIR"
 
   set +e
-  dotnet test --framework netcoreapp3.1 "./tests/Moq.Tests/Moq.Tests.csproj" \
+  dotnet test {{ instance.test_framework_flag }} "./tests/Moq.Tests/Moq.Tests.csproj" \
     --logger "junit;LogFilePath=$ARTIFACTS_DIR/tests.log"  \
     > "/tmp/${label}_stdout.log" 2> "/tmp/${label}_stderr.log"
   set -e
